@@ -72,3 +72,10 @@ cat $output_folder/output_name-*.txt > $output_folder/extracted_text.txt
 
 # 提示完成
 echo "Text extraction complete! See $output_folder/extracted_text.txt."
+
+# 讀取OCR結果並調用Python腳本進行白話解釋
+ocr_result=$(cat "$output_folder/extracted_text.txt")
+translated_text=$(python "./translate_text.py" "$ocr_result")
+
+# 打印或處理翻譯後的文本
+echo "Translated text (white language explanation): $translated_text"
